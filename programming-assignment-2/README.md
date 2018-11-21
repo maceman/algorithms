@@ -18,4 +18,4 @@ quicksort using median-of-three as a partitioning component.
 INSTRUCTIONS: Program only needs to be executed to fully run.
 Input sizes are 100, 10K, 500K and 1M. 
 
-FILES: Runner.java, Runner.class
+FILES: Runner.java
