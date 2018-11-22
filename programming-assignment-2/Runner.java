@@ -1,14 +1,4 @@
-/**
- * Course: JHU 605.621 
- * Assignment PA 2
- * Author: Mike Macey
- * Description: This program initializes two arrays (holding the 
- * same values) and runs two sorting algorithms over them:
- * a standard version of quicksort and a modified version of
- * quicksort using median-of-three as a partitioning component.
- * 
- */
-
+// Libraries to be used on program
 import java.io.FileWriter;
 import java.io.IOException;
 
