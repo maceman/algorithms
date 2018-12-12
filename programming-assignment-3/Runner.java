@@ -5,10 +5,10 @@ public class Runner {
 	
 	static int valueCounter = 0;
 
-   	public static void main(String args[]) {
-    	
-    	int index = 1;
-    	
+	public static void main(String args[]) {
+	
+	int index = 1;
+
 		// Set up 25 test cases
 		String test_set[][] = {		{"101","000","000101"},// 1
 									{"000","101","101000"},// 2
@@ -38,17 +38,17 @@ public class Runner {
 									{"1100","0011","10100001"},// 24
 									{"01010101","11111110","01010111000001111"}// 25
 							};
-        
-		for(String[] str : test_set) {
-        	System.out.println("Test Case: " + index);
-        	System.out.println("Result: " + interleaving(str[2], str[0], str[1]));
-       		System.out.println("Input Length: " + str[2].length());
-           	System.out.println("Value Counter: " + valueCounter);
-           	System.out.println();
-           	index++;
-       	}
-        
-    } // end main
+		
+	for(String[] str : test_set) {
+		System.out.println("Test Case: " + index);
+		System.out.println("Result: " + interleaving(str[2], str[0], str[1]));
+		System.out.println("Input Length: " + str[2].length());
+		System.out.println("Value Counter: " + valueCounter);
+		System.out.println();
+		index++;
+	}
+		
+	} // end main
 	
     /**
      * Method determines if two strings, x and y, are an interleaving
