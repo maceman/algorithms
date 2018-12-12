@@ -39,14 +39,14 @@ public class Runner {
 						{"01010101","11111110","01010111000001111"}// 25
 					};
 		
-	for(String[] str : test_set) {
-		System.out.println("Test Case: " + index);
-		System.out.println("Result: " + interleaving(str[2], str[0], str[1]));
-		System.out.println("Input Length: " + str[2].length());
-		System.out.println("Value Counter: " + valueCounter);
-		System.out.println();
-		index++;
-	}
+		for(String[] str : test_set) {
+			System.out.println("Test Case: " + index);
+			System.out.println("Result: " + interleaving(str[2], str[0], str[1]));
+			System.out.println("Input Length: " + str[2].length());
+			System.out.println("Value Counter: " + valueCounter);
+			System.out.println();
+			index++;
+		}
 		
 	} // end main
 	
