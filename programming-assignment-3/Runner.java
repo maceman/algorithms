@@ -1,52 +1,52 @@
-
+// Libraries to be used in program
 import java.io.FileWriter;
 
 public class Runner {
 	
 	static int valueCounter = 0;
 
-    public static void main(String args[]) {
+   	public static void main(String args[]) {
     	
     	int index = 1;
     	
-    	// Set up 25 test cases
+		// Set up 25 test cases
         String test_set[][] = {		{"101","000","000101"},// 1
         				  			{"000","101","101000"},// 2
         				  			{"0","11101101","001101011"},// 3
         				  			{"0","11","101"},// 4
         				  			{"1010","1111","10010111"},// 5
-        				  			{"1","0","01"},// 6
-        				  			{"011","001","111111"},// 7
-        				  			{"000000","111111","010101010101"},// 8
-        				  			{"","",""},// 9
-        				  			{"01000","11111","000000"},// 10
-        				  			{"010111","011100","0000"},// 11
-        				  			{"010","111","110101000000"},// 12
-        				  			{"111000101010","001111111111","111000101010001111111111"},// 13
-        				  			{"111111111111111111111111111111",
-        				  			 "000000000000000000000000000000",
+        							{"1","0","01"},// 6
+        			  				{"011","001","111111"},// 7
+        			  				{"000000","111111","010101010101"},// 8
+        			  				{"","",""},// 9
+       				  				{"01000","11111","000000"},// 10
+       				  				{"010111","011100","0000"},// 11
+       				  				{"010","111","110101000000"},// 12
+       				  				{"111000101010","001111111111","111000101010001111111111"},// 13
+       				  				{"111111111111111111111111111111",
+        				  			"000000000000000000000000000000",
         				  			 "101010101010101010101010101010101010101010101010101010101010"},// 14
         				  			{"011100100","110010000110",""},// 15
         				  			{"000000110000111","111010110000001","111010110000001000000110000111"},// 16
-        				  			{"001","100","111111"},// 17
-        				  			{"1001010","0110101","10010100110101"},// 18
-        				  			{"111000111000","100000000001","11"},// 19
-        				  			{"00","01","1000"},// 20
-        				  			{"100000001","011111110","0111111101000000010"},// 21
-        				  			{"100000001","011111110","011111110100000001"},// 22
-        				  			{"111","000","101011"},// 23
-        				  			{"1100","0011","10100001"},// 24
-        				  			{"01010101","11111110","01010111000001111"}// 25
-        				  		};
+        				 			{"001","100","111111"},// 17
+        							{"1001010","0110101","10010100110101"},// 18
+        			  				{"111000111000","100000000001","11"},// 19
+        			  				{"00","01","1000"},// 20
+        			  				{"100000001","011111110","0111111101000000010"},// 21
+       				  				{"100000001","011111110","011111110100000001"},// 22
+       				  				{"111","000","101011"},// 23
+        			  				{"1100","0011","10100001"},// 24
+       				  				{"01010101","11111110","01010111000001111"}// 25
+  				  			};
         
-        for(String[] str : test_set) {
+		for(String[] str : test_set) {
         	System.out.println("Test Case: " + index);
         	System.out.println("Result: " + interleaving(str[2], str[0], str[1]));
-        	System.out.println("Input Length: " + str[2].length());
-            System.out.println("Value Counter: " + valueCounter);
-            System.out.println();
-            index++;
-        }
+       		System.out.println("Input Length: " + str[2].length());
+           	System.out.println("Value Counter: " + valueCounter);
+           	System.out.println();
+           	index++;
+       	}
         
     } // end main
 	
@@ -81,27 +81,27 @@ public class Runner {
         
         // Check substring lengths to determine
         // algorithm compatibility
-        if(x.length() + y.length() != s.length()){
+        if(x.length() + y.length() != s.length()) {
             return false;
         }
         
         // Intialize looping through strings and database
-        for(int i=0; i < db.length-1; i++){
-            for(int j=0; j < db[i].length-1; j++){
+        for(int i=0; i < db.length-1; i++) {
+            for(int j=0; j < db[i].length-1; j++) {
             	
             	// Set length of substring x,y combination 
                 int n = i + j - 1;
                 
                 // Set first db cell to 't' (true)
-                if(i == 0 && j == 0){
+                if(i == 0 && j == 0) {
                     db[i+1][j+1] = 't';
                     valueCounter++;
                 }
                 
                 // Compute first column of memoization db for
                 // value comparison
-                else if(i == 0){
-                    if(y.charAt(j-1) == s.charAt(n)){
+                else if(i == 0) {
+                    if(y.charAt(j-1) == s.charAt(n)) {
                         db[i+1][j+1] = db[i+1][j];
                         valueCounter++;
                     }
