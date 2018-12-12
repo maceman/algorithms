@@ -7,7 +7,7 @@ public class Runner {
 
 	public static void main(String args[]) {
 	
-	int index = 1;
+		int index = 1;
 
 		// Set up 25 test cases
 		String test_set[][] = {		{"101","000","000101"},// 1
