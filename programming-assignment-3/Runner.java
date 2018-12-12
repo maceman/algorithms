@@ -50,116 +50,116 @@ public class Runner {
 		
 	} // end main
 	
-    /**
-     * Method determines if two strings, x and y, are an interleaving
-     * of a larger string, s
-     * @param s - a suspected superposition of x and y
-     * @param x - first substring
-     * @param y - second substring
-     * @return boolean
-     */
+	/**
+	* Method determines if two strings, x and y, are an interleaving
+	* of a larger string, s
+	* @param s - a suspected superposition of x and y
+	* @param x - first substring
+	* @param y - second substring
+	* @return boolean
+	*/
 	public static boolean interleaving(String s, String x, String y) {
 		
 		// Re-initialize counter
 		valueCounter = 0;
 		
 		// Initialize memoization database
-        char db[][] = new char[x.length()+2][y.length()+2];
-        
-        // Format database for display
-        db[0][0] = ' ';
-        db[0][1] = 'X';
-        db[1][0] = 'Y';
-        
-        // Add substrings to database for display
-        for(int i=0; i < db.length-2; i++) {
-        	db[i+2][0] = y.charAt(i);
-        }
-        for(int j=0; j < db.length-2; j++) {
-        	db[0][j+2] = x.charAt(j);
-        }
-        
-        // Check substring lengths to determine
-        // algorithm compatibility
-        if(x.length() + y.length() != s.length()) {
-            return false;
-        }
-        
-        // Intialize looping through strings and database
-        for(int i=0; i < db.length-1; i++) {
-            for(int j=0; j < db[i].length-1; j++) {
-            	
-            	// Set length of substring x,y combination 
-                int n = i + j - 1;
-                
-                // Set first db cell to 't' (true)
-                if(i == 0 && j == 0) {
-                    db[i+1][j+1] = 't';
-                    valueCounter++;
-                }
-                
-                // Compute first column of memoization db for
-                // value comparison
-                else if(i == 0) {
-                    if(y.charAt(j-1) == s.charAt(n)) {
-                        db[i+1][j+1] = db[i+1][j];
-                        valueCounter++;
-                    }
-                    else {
-                    	db[i+1][j+1] = 'f';
-                    	valueCounter++;
-                    }
-                }
-                
-                // Compute first row of memoization db for
-                // value comparison
-                else if(j == 0) {
-                    if(x.charAt(i-1) == s.charAt(n)) {
-                        db[i+1][j+1] = db[i][j+1];
-                        valueCounter++;
-                    }
-                    else {
-                    	db[i+1][j+1] = 'f';
-                    	valueCounter++;
-                    }
-                }
-                
-                // Compare substring x values to last
-                // value in superstring s
-                else if(x.charAt(i-1) == s.charAt(n)) {
-                	db[i+1][j+1] = db[i][j+1];
-                	valueCounter++;
-                }
-                
-                // Compare substring y values to last 
-                // value insuperstring s
-                else if(y.charAt(j-1) == s.charAt(n)) {
-                	db[i+1][j+1] = db[i+1][j];
-                	valueCounter++;
-                }
-                else{
-                    db[i+1][j+1] = 'f';
-                    valueCounter++;
-                }
-            }
-        }
-        
-        // Print memoization database if strings are small
-        // enough to view in console
-        if(x.length() < 10 && y.length() < 10) {
-        	printDB(db);
-        }
-        
-        // Checks the last element of the memoization database
-        // to determine if strings are interleaving
-        if(db[x.length()+1][y.length()+1] == 't') {
-        	return true;
-        }
-        else {
-        	return false;
-        }
-    } // end interleaving
-    
+		char db[][] = new char[x.length()+2][y.length()+2];
+	
+		// Format database for display
+		db[0][0] = ' ';
+		db[0][1] = 'X';
+		db[1][0] = 'Y';
+		
+		// Add substrings to database for display
+		for(int i=0; i < db.length-2; i++) {
+			db[i+2][0] = y.charAt(i);
+		}
+		for(int j=0; j < db.length-2; j++) {
+			db[0][j+2] = x.charAt(j);
+		}
+		
+		// Check substring lengths to determine
+		// algorithm compatibility
+		if(x.length() + y.length() != s.length()) {
+			return false;
+		}
+		
+		// Intialize looping through strings and database
+		for(int i=0; i < db.length-1; i++) {
+			for(int j=0; j < db[i].length-1; j++) {
+			
+				// Set length of substring x,y combination 
+				int n = i + j - 1;
+
+				// Set first db cell to 't' (true)
+				if(i == 0 && j == 0) {
+					db[i+1][j+1] = 't';
+					valueCounter++;
+				}
+
+				// Compute first column of memoization db for
+				// value comparison
+				else if(i == 0) {
+					if(y.charAt(j-1) == s.charAt(n)) {
+						db[i+1][j+1] = db[i+1][j];
+						valueCounter++;
+					}
+					else {
+						db[i+1][j+1] = 'f';
+						valueCounter++;
+					}
+				}
+
+				// Compute first row of memoization db for
+				// value comparison
+				else if(j == 0) {
+					if(x.charAt(i-1) == s.charAt(n)) {
+						db[i+1][j+1] = db[i][j+1];
+						valueCounter++;
+					}
+					else {
+						db[i+1][j+1] = 'f';
+						valueCounter++;
+					}
+				}
+			
+				// Compare substring x values to last
+				// value in superstring s
+				else if(x.charAt(i-1) == s.charAt(n)) {
+					db[i+1][j+1] = db[i][j+1];
+					valueCounter++;
+				}
+
+				// Compare substring y values to last 
+				// value insuperstring s
+				else if(y.charAt(j-1) == s.charAt(n)) {
+					db[i+1][j+1] = db[i+1][j];
+					valueCounter++;
+				}
+				else {
+					db[i+1][j+1] = 'f';
+					valueCounter++;
+				}
+			}
+		}
+	
+		// Print memoization database if strings are small
+		// enough to view in console
+		if(x.length() < 10 && y.length() < 10) {
+			printDB(db);
+		}
+
+		// Checks the last element of the memoization database
+		// to determine if strings are interleaving
+		if(db[x.length()+1][y.length()+1] == 't') {
+			return true;
+		}
+		else {
+			return false;
+		}
+	} // end interleaving
+
 	/**
 	 * This method prints out the memoization database
 	 * @param base - a double char array
