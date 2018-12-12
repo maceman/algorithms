@@ -38,7 +38,7 @@ public class Runner {
 						{"1100","0011","10100001"},// 24
 						{"01010101","11111110","01010111000001111"}// 25
 					};
-		
+		// Write output to console
 		for(String[] str : test_set) {
 			System.out.println("Test Case: " + index);
 			System.out.println("Result: " + interleaving(str[2], str[0], str[1]));
