@@ -16,7 +16,7 @@ Insertion sort is used to insert random numbers into both arrays.
 From there, binary search is implemented to find an element
 within each array. The two arrays are merged once the smaller array
 has no more room for insertion. An output file is produced that
-analyzes the complexity of all three algorithms over both array.
+analyzes the complexity of all three algorithms over both arrays.
 
 INSTRUCTIONS: Program only needs to be executed to fully run.
 Input sizes are 100, 10K, 500K and 1M. 
